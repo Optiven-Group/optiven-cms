@@ -480,6 +480,14 @@ export interface ApiProjectProject extends Schema.CollectionType {
         string
       > &
       Attribute.DefaultTo<'0'>;
+    isFeatured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
