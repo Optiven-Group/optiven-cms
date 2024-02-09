@@ -126,6 +126,12 @@
       },
       "type": "richtext",
       "required": true
+    },
+    "sub_projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-project.sub-project",
+      "mappedBy": "project"
     }
   }
 }
