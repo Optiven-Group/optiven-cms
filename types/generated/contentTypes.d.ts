@@ -915,6 +915,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToMany',
       'api::sub-project.sub-project'
     >;
+    value_additions: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::value-addition.value-addition'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1097,6 +1102,60 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
 }
 
+export interface ApiValueAdditionValueAddition extends Schema.CollectionType {
+  collectionName: 'value_additions';
+  info: {
+    singularName: 'value-addition';
+    pluralName: 'value-additions';
+    displayName: 'Value Addition';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    valueAdditionTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    project: Attribute.Relation<
+      'api::value-addition.value-addition',
+      'manyToOne',
+      'api::project.project'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::value-addition.value-addition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::value-addition.value-addition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::value-addition.value-addition',
+      'oneToMany',
+      'api::value-addition.value-addition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1118,6 +1177,7 @@ declare module '@strapi/types' {
       'api::project.project': ApiProjectProject;
       'api::sub-project.sub-project': ApiSubProjectSubProject;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::value-addition.value-addition': ApiValueAdditionValueAddition;
     }
   }
 }

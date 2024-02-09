@@ -132,6 +132,12 @@
       "relation": "oneToMany",
       "target": "api::sub-project.sub-project",
       "mappedBy": "project"
+    },
+    "value_additions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::value-addition.value-addition",
+      "mappedBy": "project"
     }
   }
 }
