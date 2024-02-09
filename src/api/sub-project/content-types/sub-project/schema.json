@@ -33,7 +33,7 @@
         }
       },
       "type": "biginteger",
-      "required": true
+      "required": false
     },
     "quarterAcrePrice": {
       "pluginOptions": {
@@ -43,7 +43,7 @@
       },
       "type": "biginteger",
       "unique": false,
-      "required": true
+      "required": false
     },
     "halfAcrePrice": {
       "pluginOptions": {
@@ -52,7 +52,7 @@
         }
       },
       "type": "biginteger",
-      "required": true
+      "required": false
     },
     "acrePrice": {
       "pluginOptions": {
@@ -61,7 +61,7 @@
         }
       },
       "type": "biginteger",
-      "required": true
+      "required": false
     },
     "project": {
       "type": "relation",

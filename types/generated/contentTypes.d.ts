@@ -970,28 +970,24 @@ export interface ApiSubProjectSubProject extends Schema.CollectionType {
         };
       }>;
     eighthAcrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     quarterAcrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     halfAcrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     acrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
