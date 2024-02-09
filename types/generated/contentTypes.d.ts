@@ -844,7 +844,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }>;
     eighthAcrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -858,7 +857,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
       > &
       Attribute.DefaultTo<'0'>;
     quarterAcrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -872,7 +870,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
       > &
       Attribute.DefaultTo<'0'>;
     halfAcrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -886,7 +883,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
       > &
       Attribute.DefaultTo<'0'>;
     acrePrice: Attribute.BigInteger &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

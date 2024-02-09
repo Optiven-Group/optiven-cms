@@ -71,7 +71,7 @@
         }
       },
       "type": "biginteger",
-      "required": true,
+      "required": false,
       "default": "0",
       "min": "0"
     },
@@ -83,7 +83,7 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": true,
+      "required": false,
       "default": "0"
     },
     "halfAcrePrice": {
@@ -95,7 +95,7 @@
       "type": "biginteger",
       "min": "0",
       "default": "0",
-      "required": true
+      "required": false
     },
     "acrePrice": {
       "pluginOptions": {
@@ -105,7 +105,7 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": true,
+      "required": false,
       "default": "0"
     },
     "isFeatured": {
