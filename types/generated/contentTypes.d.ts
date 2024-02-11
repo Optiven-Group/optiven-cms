@@ -1044,15 +1044,15 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToMany',
       'api::sub-project.sub-project'
     >;
-    value_additions: Attribute.Relation<
-      'api::project.project',
-      'oneToMany',
-      'api::value-addition.value-addition'
-    >;
     project_location: Attribute.Relation<
       'api::project.project',
       'manyToOne',
       'api::project-location.project-location'
+    >;
+    value_additions: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::value-addition.value-addition'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1383,9 +1383,9 @@ export interface ApiValueAdditionValueAddition extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    project: Attribute.Relation<
+    projects: Attribute.Relation<
       'api::value-addition.value-addition',
-      'manyToOne',
+      'manyToMany',
       'api::project.project'
     >;
     createdAt: Attribute.DateTime;
