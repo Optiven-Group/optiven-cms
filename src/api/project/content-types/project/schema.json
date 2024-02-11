@@ -138,6 +138,12 @@
       "relation": "oneToMany",
       "target": "api::value-addition.value-addition",
       "mappedBy": "project"
+    },
+    "project_location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-location.project-location",
+      "inversedBy": "projects"
     }
   }
 }
