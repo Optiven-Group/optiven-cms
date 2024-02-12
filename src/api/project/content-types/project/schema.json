@@ -144,6 +144,12 @@
       "relation": "manyToMany",
       "target": "api::value-addition.value-addition",
       "mappedBy": "projects"
+    },
+    "project_update": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-update.project-update",
+      "mappedBy": "project"
     }
   }
 }

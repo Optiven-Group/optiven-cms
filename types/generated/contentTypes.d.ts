@@ -1063,6 +1063,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::value-addition.value-addition'
     >;
+    project_update: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::project-update.project-update'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1197,6 +1202,11 @@ export interface ApiProjectUpdateProjectUpdate extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
+    project: Attribute.Relation<
+      'api::project-update.project-update',
+      'oneToOne',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

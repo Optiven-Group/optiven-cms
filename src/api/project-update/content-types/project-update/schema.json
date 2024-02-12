@@ -66,6 +66,12 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project",
+      "inversedBy": "project_update"
     }
   }
 }
