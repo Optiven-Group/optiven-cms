@@ -1180,6 +1180,14 @@ export interface ApiProjectUpdateProjectUpdate extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    isFeatured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

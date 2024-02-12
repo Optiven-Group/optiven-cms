@@ -45,16 +45,26 @@
       "required": true
     },
     "projectUpdateMainImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "isFeatured": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }
