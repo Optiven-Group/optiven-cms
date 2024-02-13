@@ -956,6 +956,13 @@ export interface ApiCareerCareer extends Schema.CollectionType {
       'manyToMany',
       'api::job-location.job-location'
     >;
+    jobDescription: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -40,6 +40,15 @@
       "relation": "manyToMany",
       "target": "api::job-location.job-location",
       "inversedBy": "careers"
+    },
+    "jobDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
     }
   }
 }
