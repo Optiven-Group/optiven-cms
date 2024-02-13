@@ -1373,7 +1373,6 @@ export interface ApiSubProjectSubProject extends Schema.CollectionType {
   attributes: {
     subProjectName: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
