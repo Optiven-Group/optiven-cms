@@ -829,7 +829,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    article_categories: Attribute.Relation<
+    articleCategory: Attribute.Relation<
       'api::article.article',
       'manyToMany',
       'api::article-category.article-category'
@@ -883,11 +883,6 @@ export interface ApiArticleCategoryArticleCategory
     };
   };
   attributes: {
-    articles: Attribute.Relation<
-      'api::article-category.article-category',
-      'manyToMany',
-      'api::article.article'
-    >;
     articleCategoryName: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -895,6 +890,11 @@ export interface ApiArticleCategoryArticleCategory
           localized: true;
         };
       }>;
+    articles: Attribute.Relation<
+      'api::article-category.article-category',
+      'manyToMany',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -925,6 +925,7 @@ export interface ApiCareerCareer extends Schema.CollectionType {
     singularName: 'career';
     pluralName: 'careers';
     displayName: 'Career';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -950,7 +951,7 @@ export interface ApiCareerCareer extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    job_locations: Attribute.Relation<
+    jobLocations: Attribute.Relation<
       'api::career.career',
       'manyToMany',
       'api::job-location.job-location'
@@ -996,11 +997,6 @@ export interface ApiJobLocationJobLocation extends Schema.CollectionType {
     };
   };
   attributes: {
-    careers: Attribute.Relation<
-      'api::job-location.job-location',
-      'manyToMany',
-      'api::career.career'
-    >;
     jobLocation: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
@@ -1009,6 +1005,11 @@ export interface ApiJobLocationJobLocation extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    careers: Attribute.Relation<
+      'api::job-location.job-location',
+      'manyToMany',
+      'api::career.career'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1085,7 +1086,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         minLength: 1;
-        maxLength: 420;
+        maxLength: 288;
       }> &
       Attribute.DefaultTo<'Project Summary'>;
     projectMainBanner: Attribute.Media &
@@ -1162,26 +1163,34 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    sub_projects: Attribute.Relation<
+    subProjects: Attribute.Relation<
       'api::project.project',
       'oneToMany',
       'api::sub-project.sub-project'
     >;
-    project_location: Attribute.Relation<
+    projectLocation: Attribute.Relation<
       'api::project.project',
       'manyToOne',
       'api::project-location.project-location'
     >;
-    value_additions: Attribute.Relation<
+    valueAdditions: Attribute.Relation<
       'api::project.project',
       'manyToMany',
       'api::value-addition.value-addition'
     >;
-    project_update: Attribute.Relation<
+    projectUpdate: Attribute.Relation<
       'api::project.project',
       'oneToOne',
       'api::project-update.project-update'
     >;
+    isActive: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

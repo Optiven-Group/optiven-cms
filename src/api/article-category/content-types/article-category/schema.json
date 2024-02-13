@@ -15,12 +15,6 @@
     }
   },
   "attributes": {
-    "articles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article",
-      "inversedBy": "article_categories"
-    },
     "articleCategoryName": {
       "pluginOptions": {
         "i18n": {
@@ -29,6 +23,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "articleCategory"
     }
   }
 }

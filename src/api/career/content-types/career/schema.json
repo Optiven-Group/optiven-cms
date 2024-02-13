@@ -4,7 +4,8 @@
   "info": {
     "singularName": "career",
     "pluralName": "careers",
-    "displayName": "Career"
+    "displayName": "Career",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,11 +35,11 @@
       "default": false,
       "required": true
     },
-    "job_locations": {
+    "jobLocations": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::job-location.job-location",
-      "mappedBy": "careers"
+      "inversedBy": "careers"
     }
   }
 }

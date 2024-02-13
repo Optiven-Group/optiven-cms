@@ -67,7 +67,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::project.project",
-      "inversedBy": "sub_projects"
+      "inversedBy": "subProjects"
     }
   }
 }

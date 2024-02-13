@@ -29,7 +29,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::project.project",
-      "mappedBy": "project_location"
+      "mappedBy": "projectLocation"
     }
   }
 }

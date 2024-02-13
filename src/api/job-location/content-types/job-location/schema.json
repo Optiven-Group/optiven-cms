@@ -16,12 +16,6 @@
     }
   },
   "attributes": {
-    "careers": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::career.career",
-      "inversedBy": "job_locations"
-    },
     "jobLocation": {
       "pluginOptions": {
         "i18n": {
@@ -31,6 +25,12 @@
       "type": "string",
       "unique": true,
       "required": true
+    },
+    "careers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::career.career",
+      "mappedBy": "jobLocations"
     }
   }
 }

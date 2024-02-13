@@ -30,7 +30,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::project.project",
-      "inversedBy": "value_additions"
+      "mappedBy": "valueAdditions"
     }
   }
 }

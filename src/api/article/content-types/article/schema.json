@@ -57,11 +57,11 @@
         }
       }
     },
-    "article_categories": {
+    "articleCategory": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::article-category.article-category",
-      "mappedBy": "articles"
+      "inversedBy": "articles"
     },
     "isFeatured": {
       "pluginOptions": {
