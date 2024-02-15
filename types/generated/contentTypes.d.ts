@@ -1094,6 +1094,99 @@ export interface ApiCarouselCarousel extends Schema.CollectionType {
   };
 }
 
+export interface ApiCookiePolicyCookiePolicy extends Schema.CollectionType {
+  collectionName: 'cookie_policies';
+  info: {
+    singularName: 'cookie-policy';
+    pluralName: 'cookie-policies';
+    displayName: 'Cookie Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cookie-policy.cookie-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cookie-policy.cookie-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::cookie-policy.cookie-policy',
+      'oneToMany',
+      'api::cookie-policy.cookie-policy'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCorporateSocialResponsibilityCorporateSocialResponsibility
+  extends Schema.CollectionType {
+  collectionName: 'corporate_social_responsibilities';
+  info: {
+    singularName: 'corporate-social-responsibility';
+    pluralName: 'corporate-social-responsibilities';
+    displayName: 'Corporate Social Responsibility';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::corporate-social-responsibility.corporate-social-responsibility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::corporate-social-responsibility.corporate-social-responsibility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::corporate-social-responsibility.corporate-social-responsibility',
+      'oneToMany',
+      'api::corporate-social-responsibility.corporate-social-responsibility'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDownloadDownload extends Schema.CollectionType {
   collectionName: 'downloads';
   info: {
@@ -1773,6 +1866,53 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiTermsAndConditionTermsAndCondition
+  extends Schema.CollectionType {
+  collectionName: 'terms_and_conditions';
+  info: {
+    singularName: 'terms-and-condition';
+    pluralName: 'terms-and-conditions';
+    displayName: 'Terms & Condition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::terms-and-condition.terms-and-condition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::terms-and-condition.terms-and-condition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::terms-and-condition.terms-and-condition',
+      'oneToMany',
+      'api::terms-and-condition.terms-and-condition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1926,6 +2066,8 @@ declare module '@strapi/types' {
       'api::award.award': ApiAwardAward;
       'api::career.career': ApiCareerCareer;
       'api::carousel.carousel': ApiCarouselCarousel;
+      'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
+      'api::corporate-social-responsibility.corporate-social-responsibility': ApiCorporateSocialResponsibilityCorporateSocialResponsibility;
       'api::download.download': ApiDownloadDownload;
       'api::job-location.job-location': ApiJobLocationJobLocation;
       'api::photo-gallery.photo-gallery': ApiPhotoGalleryPhotoGallery;
@@ -1935,6 +2077,7 @@ declare module '@strapi/types' {
       'api::project-update.project-update': ApiProjectUpdateProjectUpdate;
       'api::sub-project.sub-project': ApiSubProjectSubProject;
       'api::team.team': ApiTeamTeam;
+      'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::value-addition.value-addition': ApiValueAdditionValueAddition;
     }
