@@ -1041,6 +1041,116 @@ export interface ApiJobLocationJobLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiPhotoGalleryPhotoGallery extends Schema.CollectionType {
+  collectionName: 'photo_galleries';
+  info: {
+    singularName: 'photo-gallery';
+    pluralName: 'photo-galleries';
+    displayName: 'Photo Gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    photo: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    photoTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    photoDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::photo-gallery.photo-gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::photo-gallery.photo-gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::photo-gallery.photo-gallery',
+      'oneToMany',
+      'api::photo-gallery.photo-gallery'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.CollectionType {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'Privacy Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    privacyPolicyDescription: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -1163,13 +1273,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    projectContent: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     subProjects: Attribute.Relation<
       'api::project.project',
       'oneToMany',
@@ -1198,6 +1301,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<true>;
+    projectContent: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1655,6 +1764,8 @@ declare module '@strapi/types' {
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::career.career': ApiCareerCareer;
       'api::job-location.job-location': ApiJobLocationJobLocation;
+      'api::photo-gallery.photo-gallery': ApiPhotoGalleryPhotoGallery;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
       'api::project-location.project-location': ApiProjectLocationProjectLocation;
       'api::project-update.project-update': ApiProjectUpdateProjectUpdate;

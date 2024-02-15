@@ -118,15 +118,6 @@
       "default": false,
       "required": true
     },
-    "projectContent": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext",
-      "required": true
-    },
     "subProjects": {
       "type": "relation",
       "relation": "oneToMany",
@@ -160,6 +151,14 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "projectContent": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
     }
   }
 }
