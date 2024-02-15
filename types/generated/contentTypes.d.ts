@@ -919,6 +919,67 @@ export interface ApiArticleCategoryArticleCategory
   };
 }
 
+export interface ApiAwardAward extends Schema.CollectionType {
+  collectionName: 'awards';
+  info: {
+    singularName: 'award';
+    pluralName: 'awards';
+    displayName: 'Award';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    awardImage: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    awardDate: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'2024'>;
+    awardDescription: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::award.award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::award.award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::award.award',
+      'oneToMany',
+      'api::award.award'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCareerCareer extends Schema.CollectionType {
   collectionName: 'careers';
   info: {
@@ -1816,6 +1877,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
+      'api::award.award': ApiAwardAward;
       'api::career.career': ApiCareerCareer;
       'api::download.download': ApiDownloadDownload;
       'api::job-location.job-location': ApiJobLocationJobLocation;
