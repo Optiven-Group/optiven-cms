@@ -987,6 +987,60 @@ export interface ApiCareerCareer extends Schema.CollectionType {
   };
 }
 
+export interface ApiDownloadDownload extends Schema.CollectionType {
+  collectionName: 'downloads';
+  info: {
+    singularName: 'download';
+    pluralName: 'downloads';
+    displayName: 'Download';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    mediaFile: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mediaFileDescription: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::download.download',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::download.download',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::download.download',
+      'oneToMany',
+      'api::download.download'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiJobLocationJobLocation extends Schema.CollectionType {
   collectionName: 'job_locations';
   info: {
@@ -1763,6 +1817,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::career.career': ApiCareerCareer;
+      'api::download.download': ApiDownloadDownload;
       'api::job-location.job-location': ApiJobLocationJobLocation;
       'api::photo-gallery.photo-gallery': ApiPhotoGalleryPhotoGallery;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
