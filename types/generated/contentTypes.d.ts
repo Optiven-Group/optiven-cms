@@ -1558,6 +1558,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<true>;
     projectContent: Attribute.Blocks &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

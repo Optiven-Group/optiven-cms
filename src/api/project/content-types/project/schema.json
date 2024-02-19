@@ -158,7 +158,8 @@
           "localized": true
         }
       },
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     }
   }
 }
