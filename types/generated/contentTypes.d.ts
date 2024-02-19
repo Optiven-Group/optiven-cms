@@ -817,13 +817,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 288;
       }>;
-    articleBody: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     mainArticleImage: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -844,6 +837,13 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
+    articleBody: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

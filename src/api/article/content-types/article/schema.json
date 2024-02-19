@@ -35,15 +35,6 @@
       "required": true,
       "maxLength": 288
     },
-    "articleBody": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext",
-      "required": true
-    },
     "mainArticleImage": {
       "type": "media",
       "multiple": false,
@@ -71,6 +62,15 @@
       },
       "type": "boolean",
       "default": false,
+      "required": true
+    },
+    "articleBody": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
       "required": true
     }
   }
