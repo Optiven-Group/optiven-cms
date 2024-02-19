@@ -49,7 +49,7 @@
       "default": "Project Summary",
       "required": true,
       "minLength": 1,
-      "maxLength": 288
+      "maxLength": 400
     },
     "projectMainBanner": {
       "type": "media",

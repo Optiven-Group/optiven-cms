@@ -1459,7 +1459,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         minLength: 1;
-        maxLength: 288;
+        maxLength: 400;
       }> &
       Attribute.DefaultTo<'Project Summary'>;
     projectMainBanner: Attribute.Media &
