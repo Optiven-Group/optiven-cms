@@ -25,15 +25,6 @@
       "type": "string",
       "required": true
     },
-    "projectUpdateBody": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext",
-      "required": true
-    },
     "projectUpdateIntro": {
       "pluginOptions": {
         "i18n": {
@@ -72,6 +63,15 @@
       "relation": "oneToOne",
       "target": "api::project.project",
       "mappedBy": "projectUpdate"
+    },
+    "projectUpdateBody": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
+      "required": true
     }
   }
 }

@@ -33,7 +33,7 @@
       },
       "type": "text",
       "required": true,
-      "maxLength": 288
+      "maxLength": 400
     },
     "mainArticleImage": {
       "type": "media",

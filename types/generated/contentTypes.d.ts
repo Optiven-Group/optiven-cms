@@ -815,7 +815,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         };
       }> &
       Attribute.SetMinMaxLength<{
-        maxLength: 288;
+        maxLength: 400;
       }>;
     mainArticleImage: Attribute.Media &
       Attribute.Required &
@@ -1666,13 +1666,6 @@ export interface ApiProjectUpdateProjectUpdate extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    projectUpdateBody: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     projectUpdateIntro: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1703,6 +1696,13 @@ export interface ApiProjectUpdateProjectUpdate extends Schema.CollectionType {
       'oneToOne',
       'api::project.project'
     >;
+    projectUpdateBody: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
