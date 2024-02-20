@@ -32,7 +32,7 @@
         }
       },
       "type": "text",
-      "maxLength": 288,
+      "maxLength": 400,
       "required": true
     },
     "projectUpdateMainImage": {

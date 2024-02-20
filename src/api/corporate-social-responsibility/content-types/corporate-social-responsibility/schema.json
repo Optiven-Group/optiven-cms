@@ -4,7 +4,8 @@
   "info": {
     "singularName": "corporate-social-responsibility",
     "pluralName": "corporate-social-responsibilities",
-    "displayName": "Corporate Social Responsibility"
+    "displayName": "Corporate Social Responsibility",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,7 @@
     }
   },
   "attributes": {
-    "description": {
+    "csrContent": {
       "pluginOptions": {
         "i18n": {
           "localized": true

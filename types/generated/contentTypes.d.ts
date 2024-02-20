@@ -982,53 +982,6 @@ export interface ApiAwardAward extends Schema.CollectionType {
   };
 }
 
-export interface ApiBannerBanner extends Schema.CollectionType {
-  collectionName: 'banners';
-  info: {
-    singularName: 'banner';
-    pluralName: 'banners';
-    displayName: 'Banner';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    banner: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::banner.banner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::banner.banner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::banner.banner',
-      'oneToMany',
-      'api::banner.banner'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiCareerCareer extends Schema.CollectionType {
   collectionName: 'careers';
   info: {
@@ -1149,6 +1102,7 @@ export interface ApiCookiePolicyCookiePolicy extends Schema.CollectionType {
     singularName: 'cookie-policy';
     pluralName: 'cookie-policies';
     displayName: 'Cookie Policy';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1159,7 +1113,8 @@ export interface ApiCookiePolicyCookiePolicy extends Schema.CollectionType {
     };
   };
   attributes: {
-    description: Attribute.Blocks &
+    cookiePolicyContent: Attribute.Blocks &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1196,6 +1151,7 @@ export interface ApiCorporateSocialResponsibilityCorporateSocialResponsibility
     singularName: 'corporate-social-responsibility';
     pluralName: 'corporate-social-responsibilities';
     displayName: 'Corporate Social Responsibility';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1206,7 +1162,7 @@ export interface ApiCorporateSocialResponsibilityCorporateSocialResponsibility
     };
   };
   attributes: {
-    description: Attribute.Blocks &
+    csrContent: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1231,6 +1187,53 @@ export interface ApiCorporateSocialResponsibilityCorporateSocialResponsibility
       'api::corporate-social-responsibility.corporate-social-responsibility',
       'oneToMany',
       'api::corporate-social-responsibility.corporate-social-responsibility'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiDiasporaDiaspora extends Schema.CollectionType {
+  collectionName: 'diasporas';
+  info: {
+    singularName: 'diaspora';
+    pluralName: 'diasporas';
+    displayName: 'Diaspora';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    diasporaContent: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::diaspora.diaspora',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::diaspora.diaspora',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::diaspora.diaspora',
+      'oneToMany',
+      'api::diaspora.diaspora'
     >;
     locale: Attribute.String;
   };
@@ -1721,7 +1724,7 @@ export interface ApiProjectUpdateProjectUpdate extends Schema.CollectionType {
         };
       }> &
       Attribute.SetMinMaxLength<{
-        maxLength: 288;
+        maxLength: 400;
       }>;
     projectUpdateMainImage: Attribute.Media &
       Attribute.Required &
@@ -1923,6 +1926,7 @@ export interface ApiTermsAndConditionTermsAndCondition
     singularName: 'terms-and-condition';
     pluralName: 'terms-and-conditions';
     displayName: 'Terms & Condition';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1933,7 +1937,7 @@ export interface ApiTermsAndConditionTermsAndCondition
     };
   };
   attributes: {
-    description: Attribute.Blocks &
+    termsAndConditionsContent: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2114,11 +2118,11 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::award.award': ApiAwardAward;
-      'api::banner.banner': ApiBannerBanner;
       'api::career.career': ApiCareerCareer;
       'api::carousel.carousel': ApiCarouselCarousel;
       'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
       'api::corporate-social-responsibility.corporate-social-responsibility': ApiCorporateSocialResponsibilityCorporateSocialResponsibility;
+      'api::diaspora.diaspora': ApiDiasporaDiaspora;
       'api::download.download': ApiDownloadDownload;
       'api::job-location.job-location': ApiJobLocationJobLocation;
       'api::photo-gallery.photo-gallery': ApiPhotoGalleryPhotoGallery;
