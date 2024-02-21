@@ -1192,6 +1192,67 @@ export interface ApiCorporateSocialResponsibilityCorporateSocialResponsibility
   };
 }
 
+export interface ApiCurrencyCurrency extends Schema.CollectionType {
+  collectionName: 'currencies';
+  info: {
+    singularName: 'currency';
+    pluralName: 'currencies';
+    displayName: 'Currency';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    usdRate: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    euroRate: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    gbpRate: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::currency.currency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::currency.currency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::currency.currency',
+      'oneToMany',
+      'api::currency.currency'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDiasporaDiaspora extends Schema.CollectionType {
   collectionName: 'diasporas';
   info: {
@@ -2122,6 +2183,7 @@ declare module '@strapi/types' {
       'api::carousel.carousel': ApiCarouselCarousel;
       'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
       'api::corporate-social-responsibility.corporate-social-responsibility': ApiCorporateSocialResponsibilityCorporateSocialResponsibility;
+      'api::currency.currency': ApiCurrencyCurrency;
       'api::diaspora.diaspora': ApiDiasporaDiaspora;
       'api::download.download': ApiDownloadDownload;
       'api::job-location.job-location': ApiJobLocationJobLocation;
