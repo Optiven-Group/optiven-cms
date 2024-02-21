@@ -1973,6 +1973,7 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
     singularName: 'testimonial';
     pluralName: 'testimonials';
     displayName: 'Testimonial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2016,7 +2017,6 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         minLength: 1;
-        maxLength: 288;
       }> &
       Attribute.DefaultTo<'Lorem ipsum dolor'>;
     createdAt: Attribute.DateTime;

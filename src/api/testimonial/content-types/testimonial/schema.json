@@ -4,7 +4,8 @@
   "info": {
     "singularName": "testimonial",
     "pluralName": "testimonials",
-    "displayName": "Testimonial"
+    "displayName": "Testimonial",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -48,7 +49,6 @@
       "type": "text",
       "default": "Lorem ipsum dolor",
       "required": true,
-      "maxLength": 288,
       "minLength": 1
     }
   }
