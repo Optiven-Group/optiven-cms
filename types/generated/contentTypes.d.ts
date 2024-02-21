@@ -1921,6 +1921,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     singularName: 'team';
     pluralName: 'teams';
     displayName: 'Team';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1953,9 +1954,6 @@ export interface ApiTeamTeam extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 300;
       }>;
     teamMemberImage: Attribute.Media &
       Attribute.Required &
