@@ -1942,7 +1942,6 @@ export interface ApiTeamTeam extends Schema.CollectionType {
       }>;
     teamMemberRole: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
