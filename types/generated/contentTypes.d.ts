@@ -1019,7 +1019,7 @@ export interface ApiCareerCareer extends Schema.CollectionType {
       'manyToMany',
       'api::job-location.job-location'
     >;
-    jobDescription: Attribute.RichText &
+    jobDescription: Attribute.Blocks &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
