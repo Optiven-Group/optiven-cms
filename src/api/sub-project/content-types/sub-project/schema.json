@@ -26,7 +26,7 @@
       "required": true,
       "unique": false
     },
-    "eighthAcrePrice": {
+    "eighthAcreCashPrice": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -35,7 +35,7 @@
       "type": "biginteger",
       "required": false
     },
-    "quarterAcrePrice": {
+    "quarterAcreCashPrice": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -45,7 +45,7 @@
       "unique": false,
       "required": false
     },
-    "halfAcrePrice": {
+    "halfAcreCashPrice": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -54,7 +54,7 @@
       "type": "biginteger",
       "required": false
     },
-    "acrePrice": {
+    "acreCashPrice": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -68,6 +68,102 @@
       "relation": "manyToOne",
       "target": "api::project.project",
       "inversedBy": "subProjects"
+    },
+    "eighthAcre3MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "quarterAcre3MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "halfAcre3MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "acre3MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "eighthAcre6MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "quarterAcre6MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "halfAcre6MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "acre6MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "eighthAcre12MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "quarterAcre12MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "halfAcre12MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
+    },
+    "acre12MonthsPrice": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
     }
   }
 }

@@ -1580,7 +1580,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    eighthAcrePrice: Attribute.BigInteger &
+    eighthAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1593,7 +1593,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
         string
       > &
       Attribute.DefaultTo<'0'>;
-    quarterAcrePrice: Attribute.BigInteger &
+    quarterAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1606,7 +1606,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
         string
       > &
       Attribute.DefaultTo<'0'>;
-    halfAcrePrice: Attribute.BigInteger &
+    halfAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1619,7 +1619,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
         string
       > &
       Attribute.DefaultTo<'0'>;
-    acrePrice: Attribute.BigInteger &
+    acreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1688,6 +1688,78 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }>;
     waterApplicationFormLink: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eigthAcre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quarterAcre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    halfAcre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    acre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eighthAcre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quarterAcre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    halfAcre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    acre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eighthAcre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quarterAcre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    halfAcre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    acre12MonthsPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1880,25 +1952,25 @@ export interface ApiSubProjectSubProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    eighthAcrePrice: Attribute.BigInteger &
+    eighthAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    quarterAcrePrice: Attribute.BigInteger &
+    quarterAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    halfAcrePrice: Attribute.BigInteger &
+    halfAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    acrePrice: Attribute.BigInteger &
+    acreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1909,6 +1981,78 @@ export interface ApiSubProjectSubProject extends Schema.CollectionType {
       'manyToOne',
       'api::project.project'
     >;
+    eighthAcre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quarterAcre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    halfAcre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    acre3MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eighthAcre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quarterAcre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    halfAcre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    acre6MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    eighthAcre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quarterAcre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    halfAcre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    acre12MonthsPrice: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
