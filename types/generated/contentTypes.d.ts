@@ -1790,6 +1790,18 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    projectMapLocationLink: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    projectCarousel: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
