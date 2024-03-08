@@ -4,7 +4,8 @@
   "info": {
     "singularName": "currency",
     "pluralName": "currencies",
-    "displayName": "Currency"
+    "displayName": "Currency",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,7 @@
     }
   },
   "attributes": {
-    "usdRate": {
+    "usdToKES": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,7 +25,7 @@
       "type": "integer",
       "required": true
     },
-    "euroRate": {
+    "euroToKES": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -33,7 +34,7 @@
       "type": "integer",
       "required": true
     },
-    "gbpRate": {
+    "gbpToKES": {
       "pluginOptions": {
         "i18n": {
           "localized": true

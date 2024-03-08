@@ -1198,6 +1198,7 @@ export interface ApiCurrencyCurrency extends Schema.CollectionType {
     singularName: 'currency';
     pluralName: 'currencies';
     displayName: 'Currency';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1208,21 +1209,21 @@ export interface ApiCurrencyCurrency extends Schema.CollectionType {
     };
   };
   attributes: {
-    usdRate: Attribute.Integer &
+    usdToKES: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    euroRate: Attribute.Integer &
+    euroToKES: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    gbpRate: Attribute.Integer &
+    gbpToKES: Attribute.Integer &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
