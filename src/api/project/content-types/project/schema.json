@@ -72,7 +72,6 @@
       },
       "type": "biginteger",
       "required": false,
-      "default": "0",
       "min": "0"
     },
     "quarterAcreCashPrice": {
@@ -94,7 +93,6 @@
       },
       "type": "biginteger",
       "min": "0",
-      "default": "0",
       "required": false
     },
     "acreCashPrice": {
@@ -105,8 +103,7 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": false,
-      "default": "0"
+      "required": false
     },
     "isFeatured": {
       "pluginOptions": {
@@ -323,11 +320,12 @@
       "type": "string"
     },
     "projectCarousel": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true

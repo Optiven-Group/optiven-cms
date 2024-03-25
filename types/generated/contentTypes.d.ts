@@ -1694,8 +1694,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           min: '0';
         },
         string
-      > &
-      Attribute.DefaultTo<'0'>;
+      >;
     quarterAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1720,8 +1719,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           min: '0';
         },
         string
-      > &
-      Attribute.DefaultTo<'0'>;
+      >;
     acreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1733,8 +1731,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           min: '0';
         },
         string
-      > &
-      Attribute.DefaultTo<'0'>;
+      >;
     isFeatured: Attribute.Boolean &
       Attribute.Required &
       Attribute.SetPluginOptions<{
