@@ -82,8 +82,7 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": false,
-      "default": "0"
+      "required": false
     },
     "halfAcreCashPrice": {
       "pluginOptions": {

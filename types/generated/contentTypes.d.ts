@@ -1706,8 +1706,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           min: '0';
         },
         string
-      > &
-      Attribute.DefaultTo<'0'>;
+      >;
     halfAcreCashPrice: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
