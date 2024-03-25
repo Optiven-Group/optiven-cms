@@ -1409,6 +1409,108 @@ export interface ApiJobLocationJobLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiOptivenInTheMediaOptivenInTheMedia
+  extends Schema.CollectionType {
+  collectionName: 'optiven_in_the_medias';
+  info: {
+    singularName: 'optiven-in-the-media';
+    pluralName: 'optiven-in-the-medias';
+    displayName: 'Optiven In The Media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    link: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::optiven-in-the-media.optiven-in-the-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::optiven-in-the-media.optiven-in-the-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::optiven-in-the-media.optiven-in-the-media',
+      'oneToMany',
+      'api::optiven-in-the-media.optiven-in-the-media'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPartnerPartner extends Schema.CollectionType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::partner.partner',
+      'oneToMany',
+      'api::partner.partner'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPhotoGalleryPhotoGallery extends Schema.CollectionType {
   collectionName: 'photo_galleries';
   info: {
@@ -2454,6 +2556,8 @@ declare module '@strapi/types' {
       'api::diaspora.diaspora': ApiDiasporaDiaspora;
       'api::download.download': ApiDownloadDownload;
       'api::job-location.job-location': ApiJobLocationJobLocation;
+      'api::optiven-in-the-media.optiven-in-the-media': ApiOptivenInTheMediaOptivenInTheMedia;
+      'api::partner.partner': ApiPartnerPartner;
       'api::photo-gallery.photo-gallery': ApiPhotoGalleryPhotoGallery;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::project.project': ApiProjectProject;
