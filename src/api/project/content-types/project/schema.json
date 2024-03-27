@@ -72,7 +72,8 @@
       },
       "type": "biginteger",
       "required": false,
-      "min": "0"
+      "min": "0",
+      "default": "0"
     },
     "quarterAcreCashPrice": {
       "pluginOptions": {
@@ -82,7 +83,8 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": false
+      "required": false,
+      "default": "0"
     },
     "halfAcreCashPrice": {
       "pluginOptions": {
@@ -92,7 +94,8 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": false
+      "required": false,
+      "default": "0"
     },
     "acreCashPrice": {
       "pluginOptions": {
@@ -102,7 +105,8 @@
       },
       "type": "biginteger",
       "min": "0",
-      "required": false
+      "required": false,
+      "default": "0"
     },
     "isFeatured": {
       "pluginOptions": {
