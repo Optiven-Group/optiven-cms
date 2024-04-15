@@ -927,6 +927,7 @@ export interface ApiAwardAward extends Schema.CollectionType {
     singularName: 'award';
     pluralName: 'awards';
     displayName: 'Award';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -937,22 +938,21 @@ export interface ApiAwardAward extends Schema.CollectionType {
     };
   };
   attributes: {
-    awardImage: Attribute.Media &
+    awardTitle: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    awardDate: Attribute.String &
+    awardYear: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }> &
-      Attribute.DefaultTo<'2024'>;
-    awardDescription: Attribute.String &
-      Attribute.Required &
+      }>;
+    awardDescription: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
