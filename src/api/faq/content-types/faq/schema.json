@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faq",
     "pluralName": "faqs",
-    "displayName": "FAQ"
+    "displayName": "FAQ",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,11 +20,10 @@
       "type": "text",
       "required": true
     },
-    "faqCategory": {
+    "category": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::faq-category.faq-category",
-      "inversedBy": "faqs"
+      "relation": "oneToOne",
+      "target": "api::faq-category.faq-category"
     }
   }
 }

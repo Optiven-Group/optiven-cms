@@ -1366,6 +1366,7 @@ export interface ApiFaqFaq extends Schema.CollectionType {
     singularName: 'faq';
     pluralName: 'faqs';
     displayName: 'FAQ';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1373,9 +1374,9 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   attributes: {
     question: Attribute.Text & Attribute.Required;
     answer: Attribute.Text & Attribute.Required;
-    faqCategory: Attribute.Relation<
+    category: Attribute.Relation<
       'api::faq.faq',
-      'manyToOne',
+      'oneToOne',
       'api::faq-category.faq-category'
     >;
     createdAt: Attribute.DateTime;
@@ -1400,12 +1401,8 @@ export interface ApiFaqCategoryFaqCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    faqs: Attribute.Relation<
-      'api::faq-category.faq-category',
-      'oneToMany',
-      'api::faq.faq'
-    >;
     banner: Attribute.Media & Attribute.Required;
+    category: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
