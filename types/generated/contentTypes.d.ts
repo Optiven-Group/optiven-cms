@@ -514,6 +514,10 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
     releasedAt: Attribute.DateTime;
     scheduledAt: Attribute.DateTime;
     timezone: Attribute.String;
+    status: Attribute.Enumeration<
+      ['ready', 'blocked', 'failed', 'done', 'empty']
+    > &
+      Attribute.Required;
     actions: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToMany',
@@ -568,6 +572,7 @@ export interface PluginContentReleasesReleaseAction
       'manyToOne',
       'plugin::content-releases.release'
     >;
+    isEntryValid: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1352,6 +1357,70 @@ export interface ApiDownloadDownload extends Schema.CollectionType {
       'api::download.download'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.Text & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
+    faqCategory: Attribute.Relation<
+      'api::faq.faq',
+      'manyToOne',
+      'api::faq-category.faq-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqCategoryFaqCategory extends Schema.CollectionType {
+  collectionName: 'faq_categories';
+  info: {
+    singularName: 'faq-category';
+    pluralName: 'faq-categories';
+    displayName: 'FAQ Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    faqs: Attribute.Relation<
+      'api::faq-category.faq-category',
+      'oneToMany',
+      'api::faq.faq'
+    >;
+    banner: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faq-category.faq-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faq-category.faq-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -2563,6 +2632,8 @@ declare module '@strapi/types' {
       'api::currency.currency': ApiCurrencyCurrency;
       'api::diaspora.diaspora': ApiDiasporaDiaspora;
       'api::download.download': ApiDownloadDownload;
+      'api::faq.faq': ApiFaqFaq;
+      'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::job-location.job-location': ApiJobLocationJobLocation;
       'api::optiven-in-the-media.optiven-in-the-media': ApiOptivenInTheMediaOptivenInTheMedia;
       'api::partner.partner': ApiPartnerPartner;
