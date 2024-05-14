@@ -2141,6 +2141,74 @@ export interface ApiProjectUpdateProjectUpdate extends Schema.CollectionType {
   };
 }
 
+export interface ApiStatStat extends Schema.CollectionType {
+  collectionName: 'stats';
+  info: {
+    singularName: 'stat';
+    pluralName: 'stats';
+    displayName: 'Stat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    completedProjects: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    yearsOfTransformation: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    awards: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    happyClients: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    disbursedTitleDeeds: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    workforce: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::stat.stat', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::stat.stat', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::stat.stat',
+      'oneToMany',
+      'api::stat.stat'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiSubProjectSubProject extends Schema.CollectionType {
   collectionName: 'sub_projects';
   info: {
@@ -2639,6 +2707,7 @@ declare module '@strapi/types' {
       'api::project.project': ApiProjectProject;
       'api::project-location.project-location': ApiProjectLocationProjectLocation;
       'api::project-update.project-update': ApiProjectUpdateProjectUpdate;
+      'api::stat.stat': ApiStatStat;
       'api::sub-project.sub-project': ApiSubProjectSubProject;
       'api::team.team': ApiTeamTeam;
       'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
