@@ -1495,6 +1495,87 @@ export interface ApiCurrencyCurrency extends Schema.CollectionType {
   };
 }
 
+export interface ApiCustomerInfoCustomerInfo extends Schema.CollectionType {
+  collectionName: 'customer_infos';
+  info: {
+    singularName: 'customer-info';
+    pluralName: 'customer-infos';
+    displayName: 'Customer Info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    platinumDetails: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    goldDetails: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    silverDetails: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bronzeDetails: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sapphireDetails: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::customer-info.customer-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::customer-info.customer-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::customer-info.customer-info',
+      'oneToMany',
+      'api::customer-info.customer-info'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiDiasporaDiaspora extends Schema.CollectionType {
   collectionName: 'diasporas';
   info: {
@@ -2939,6 +3020,7 @@ declare module '@strapi/types' {
       'api::cookie-policy.cookie-policy': ApiCookiePolicyCookiePolicy;
       'api::corporate-social-responsibility.corporate-social-responsibility': ApiCorporateSocialResponsibilityCorporateSocialResponsibility;
       'api::currency.currency': ApiCurrencyCurrency;
+      'api::customer-info.customer-info': ApiCustomerInfoCustomerInfo;
       'api::diaspora.diaspora': ApiDiasporaDiaspora;
       'api::download.download': ApiDownloadDownload;
       'api::faq.faq': ApiFaqFaq;
