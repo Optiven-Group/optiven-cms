@@ -2297,6 +2297,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       }>;
     projectPosition: Attribute.Integer &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
