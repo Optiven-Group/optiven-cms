@@ -1373,12 +1373,12 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   };
   attributes: {
     question: Attribute.Text & Attribute.Required;
-    answer: Attribute.Text & Attribute.Required;
     category: Attribute.Relation<
       'api::faq.faq',
       'oneToOne',
       'api::faq-category.faq-category'
     >;
+    answer: Attribute.Blocks & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

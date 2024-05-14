@@ -16,14 +16,14 @@
       "type": "text",
       "required": true
     },
-    "answer": {
-      "type": "text",
-      "required": true
-    },
     "category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::faq-category.faq-category"
+    },
+    "answer": {
+      "type": "blocks",
+      "required": true
     }
   }
 }
