@@ -341,7 +341,8 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "integer",
+      "required": true
     }
   }
 }
