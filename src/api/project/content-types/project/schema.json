@@ -334,6 +334,14 @@
           "localized": true
         }
       }
+    },
+    "projectPosition": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }
