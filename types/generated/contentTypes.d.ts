@@ -2893,6 +2893,54 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
 }
 
+export interface ApiTestimonialImageTestimonialImage
+  extends Schema.CollectionType {
+  collectionName: 'testimonial_images';
+  info: {
+    singularName: 'testimonial-image';
+    pluralName: 'testimonial-images';
+    displayName: 'Testimonial Image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    images: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testimonial-image.testimonial-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testimonial-image.testimonial-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::testimonial-image.testimonial-image',
+      'oneToMany',
+      'api::testimonial-image.testimonial-image'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiValueAdditionValueAddition extends Schema.CollectionType {
   collectionName: 'value_additions';
   info: {
@@ -3039,6 +3087,7 @@ declare module '@strapi/types' {
       'api::team.team': ApiTeamTeam;
       'api::terms-and-condition.terms-and-condition': ApiTermsAndConditionTermsAndCondition;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::testimonial-image.testimonial-image': ApiTestimonialImageTestimonialImage;
       'api::value-addition.value-addition': ApiValueAdditionValueAddition;
       'api::why-us.why-us': ApiWhyUsWhyUs;
     }
