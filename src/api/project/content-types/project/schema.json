@@ -344,6 +344,11 @@
       "type": "integer",
       "required": true,
       "unique": true
+    },
+    "ownershipType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ownership-type.ownership-type"
     }
   }
 }

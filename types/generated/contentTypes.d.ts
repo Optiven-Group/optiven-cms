@@ -1847,6 +1847,55 @@ export interface ApiOptivenInTheMediaOptivenInTheMedia
   };
 }
 
+export interface ApiOwnershipTypeOwnershipType extends Schema.CollectionType {
+  collectionName: 'ownership_types';
+  info: {
+    singularName: 'ownership-type';
+    pluralName: 'ownership-types';
+    displayName: 'Ownership Type';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ownership-type.ownership-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ownership-type.ownership-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::ownership-type.ownership-type',
+      'oneToMany',
+      'api::ownership-type.ownership-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPartnerPartner extends Schema.CollectionType {
   collectionName: 'partners';
   info: {
@@ -2303,6 +2352,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    ownershipType: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'api::ownership-type.ownership-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3124,6 +3178,7 @@ declare module '@strapi/types' {
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::job-location.job-location': ApiJobLocationJobLocation;
       'api::optiven-in-the-media.optiven-in-the-media': ApiOptivenInTheMediaOptivenInTheMedia;
+      'api::ownership-type.ownership-type': ApiOwnershipTypeOwnershipType;
       'api::partner.partner': ApiPartnerPartner;
       'api::photo-gallery.photo-gallery': ApiPhotoGalleryPhotoGallery;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
