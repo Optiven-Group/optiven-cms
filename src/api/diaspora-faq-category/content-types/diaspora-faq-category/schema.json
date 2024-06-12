@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "diasporas",
+  "collectionName": "diaspora_faq_categories",
   "info": {
-    "singularName": "diaspora",
-    "pluralName": "diasporas",
-    "displayName": "Diaspora",
+    "singularName": "diaspora-faq-category",
+    "pluralName": "diaspora-faq-categories",
+    "displayName": "Diaspora FAQ Category",
     "description": ""
   },
   "options": {
@@ -16,27 +16,28 @@
     }
   },
   "attributes": {
-    "diasporaContent": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks",
+      "type": "string",
+      "unique": true,
       "required": true
     },
-    "carouselImages": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "required": true
+      }
     }
   }
 }

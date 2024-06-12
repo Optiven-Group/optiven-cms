@@ -1582,6 +1582,7 @@ export interface ApiDiasporaDiaspora extends Schema.CollectionType {
     singularName: 'diaspora';
     pluralName: 'diasporas';
     displayName: 'Diaspora';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1593,6 +1594,13 @@ export interface ApiDiasporaDiaspora extends Schema.CollectionType {
   };
   attributes: {
     diasporaContent: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    carouselImages: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1618,6 +1626,204 @@ export interface ApiDiasporaDiaspora extends Schema.CollectionType {
       'api::diaspora.diaspora',
       'oneToMany',
       'api::diaspora.diaspora'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiDiasporaFaqDiasporaFaq extends Schema.CollectionType {
+  collectionName: 'diaspora_faqs';
+  info: {
+    singularName: 'diaspora-faq';
+    pluralName: 'diaspora-faqs';
+    displayName: 'Diaspora FAQ';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    question: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    answer: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    diasporaFaqCategory: Attribute.Relation<
+      'api::diaspora-faq.diaspora-faq',
+      'oneToOne',
+      'api::diaspora-faq-category.diaspora-faq-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::diaspora-faq.diaspora-faq',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::diaspora-faq.diaspora-faq',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::diaspora-faq.diaspora-faq',
+      'oneToMany',
+      'api::diaspora-faq.diaspora-faq'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiDiasporaFaqCategoryDiasporaFaqCategory
+  extends Schema.CollectionType {
+  collectionName: 'diaspora_faq_categories';
+  info: {
+    singularName: 'diaspora-faq-category';
+    pluralName: 'diaspora-faq-categories';
+    displayName: 'Diaspora FAQ Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    banner: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::diaspora-faq-category.diaspora-faq-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::diaspora-faq-category.diaspora-faq-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::diaspora-faq-category.diaspora-faq-category',
+      'oneToMany',
+      'api::diaspora-faq-category.diaspora-faq-category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiDiasporaMessageBoardDiasporaMessageBoard
+  extends Schema.CollectionType {
+  collectionName: 'diaspora_message_boards';
+  info: {
+    singularName: 'diaspora-message-board';
+    pluralName: 'diaspora-message-boards';
+    displayName: 'Diaspora Message Board';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    itemTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    itemIntro: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    itemThumbnail: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    itemBody: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    isFeatured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::diaspora-message-board.diaspora-message-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::diaspora-message-board.diaspora-message-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::diaspora-message-board.diaspora-message-board',
+      'oneToMany',
+      'api::diaspora-message-board.diaspora-message-board'
     >;
     locale: Attribute.String;
   };
@@ -3173,6 +3379,9 @@ declare module '@strapi/types' {
       'api::currency.currency': ApiCurrencyCurrency;
       'api::customer-info.customer-info': ApiCustomerInfoCustomerInfo;
       'api::diaspora.diaspora': ApiDiasporaDiaspora;
+      'api::diaspora-faq.diaspora-faq': ApiDiasporaFaqDiasporaFaq;
+      'api::diaspora-faq-category.diaspora-faq-category': ApiDiasporaFaqCategoryDiasporaFaqCategory;
+      'api::diaspora-message-board.diaspora-message-board': ApiDiasporaMessageBoardDiasporaMessageBoard;
       'api::download.download': ApiDownloadDownload;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
