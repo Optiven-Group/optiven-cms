@@ -1756,6 +1756,7 @@ export interface ApiDiasporaMessageBoardDiasporaMessageBoard
     singularName: 'diaspora-message-board';
     pluralName: 'diaspora-message-boards';
     displayName: 'Diaspora Message Board';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1779,9 +1780,6 @@ export interface ApiDiasporaMessageBoardDiasporaMessageBoard
         i18n: {
           localized: true;
         };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 200;
       }>;
     itemThumbnail: Attribute.Media &
       Attribute.Required &

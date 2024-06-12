@@ -4,7 +4,8 @@
   "info": {
     "singularName": "diaspora-message-board",
     "pluralName": "diaspora-message-boards",
-    "displayName": "Diaspora Message Board"
+    "displayName": "Diaspora Message Board",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,21 +33,20 @@
         }
       },
       "type": "text",
-      "required": true,
-      "maxLength": 200
+      "required": true
     },
     "itemThumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "required": true
+      }
     },
     "itemBody": {
       "pluginOptions": {
