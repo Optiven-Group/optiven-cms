@@ -343,7 +343,7 @@
       },
       "type": "integer",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "ownershipType": {
       "type": "relation",
